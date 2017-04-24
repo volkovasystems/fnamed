@@ -1,6 +1,5 @@
 yarn add \
 babel-runtime \
-cagd \
 falzy \
 protype \
 stringe \
@@ -15,7 +14,6 @@ source-map-loader \
 webpack \
 --dev && \
 bower install \
-cagd \
 falzy \
 protype \
 stringe \

@@ -43,11 +43,13 @@
               
               	@module-documentation:
               		Checks if method has the given name.
+              
+              		If the method has no name, but the function structure has then
+              			it will still return true based on the given name.
               	@end-module-documentation
               
               	@include:
               		{
-              			"cagd": "cagd",
               			"falzy": "falzy",
               			"protype": "protype",
               			"stringe": "stringe",
@@ -56,7 +58,6 @@
               	@end-include
               */
 
-var cagd = require("cagd");
 var falzy = require("falzy");
 var protype = require("protype");
 var stringe = require("stringe");
@@ -82,6 +83,10 @@ var fnamed = function fnamed(method, name) {
 		return true;
 	}
 
+	if (falzy(name) && truly(name = stringe(method).match(FUNCTION_NAME_PATTERN)[1])) {
+		return true;
+	}
+
 	if (falzy(name) || !protype(name, STRING)) {
 		return false;
 	}
@@ -98,15 +103,7 @@ var fnamed = function fnamed(method, name) {
 		return false;
 	}
 
-	/*;
-   	@note:
-   		If method has no name but function structure contains a name, then
-   			we will try to resolve the method name.
-   	@end-note
-   */
 	if (stringe(method).match(FUNCTION_NAME_PATTERN)[1] == name) {
-		cagd("name", name, method);
-
 		return true;
 	}
 
