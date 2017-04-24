@@ -47,7 +47,7 @@
 
 	@include:
 		{
-			"ate": "ate",
+			"cagd": "cagd",
 			"falzy": "falzy",
 			"protype": "protype",
 			"stringe": "stringe",
@@ -56,7 +56,7 @@
 	@end-include
 */
 
-const ate = require( "ate" );
+const cagd = require( "cagd" );
 const falzy = require( "falzy" );
 const protype = require( "protype" );
 const stringe = require( "stringe" );
@@ -105,7 +105,7 @@ const fnamed = function fnamed( method, name ){
 		@end-note
 	*/
 	if( stringe( method ).match( FUNCTION_NAME_PATTERN )[ 1 ] == name ){
-		ate( "name", name, method );
+		cagd( "name", name, method );
 
 		return true;
 	}
