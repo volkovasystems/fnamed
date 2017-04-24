@@ -49,7 +49,6 @@
               		{
               			"ate": "ate",
               			"falzy": "falzy",
-              			"kein": "kein",
               			"protype": "protype",
               			"stringe": "stringe",
               			"truly": "truly"
@@ -59,7 +58,6 @@
 
 var ate = require("ate");
 var falzy = require("falzy");
-var kein = require("kein");
 var protype = require("protype");
 var stringe = require("stringe");
 var truly = require("truly");
@@ -80,7 +78,7 @@ var fnamed = function fnamed(method, name) {
 		return false;
 	}
 
-	if (falzy(name) && kein("name", method) && truly(method.name) && protype(method.name, STRING)) {
+	if (falzy(name) && truly(method.name) && protype(method.name, STRING)) {
 		return true;
 	}
 
@@ -88,7 +86,7 @@ var fnamed = function fnamed(method, name) {
 		return false;
 	}
 
-	if (!kein("name", method) || falzy(method.name) || !protype(method.name, STRING)) {
+	if (falzy(method.name) || !protype(method.name, STRING)) {
 		return false;
 	}
 

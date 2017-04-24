@@ -2,7 +2,6 @@ yarn add \
 babel-runtime \
 ate \
 falzy \
-kein \
 protype \
 stringe \
 truly \
@@ -18,7 +17,6 @@ webpack \
 bower install \
 ate \
 falzy \
-kein \
 protype \
 stringe \
 truly \
