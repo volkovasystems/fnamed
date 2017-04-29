@@ -1,8 +1,8 @@
 yarn add \
 babel-runtime \
 falzy \
+fname \
 protype \
-stringe \
 truly \
 --save && \
 yarn add \
@@ -15,8 +15,8 @@ webpack \
 --dev && \
 bower install \
 falzy \
+fname \
 protype \
-stringe \
 truly \
 --save \
 --force-latest

@@ -51,19 +51,17 @@
 	@include:
 		{
 			"falzy": "falzy",
+			"fname": "fname",
 			"protype": "protype",
-			"stringe": "stringe",
 			"truly": "truly"
 		}
 	@end-include
 */
 
 const falzy = require( "falzy" );
+const fname = require( "fname" );
 const protype = require( "protype" );
-const stringe = require( "stringe" );
 const truly = require( "truly" );
-
-const FUNCTION_NAME_PATTERN = /^function\s*([a-zA-Z_][a-zA-Z0-9_]*)?\s*\(.*?\)\s*\{.*?\}$/m;
 
 const fnamed = function fnamed( method, name ){
 	/*;
@@ -79,11 +77,7 @@ const fnamed = function fnamed( method, name ){
 		return false;
 	}
 
-	if( falzy( name ) && truly( method.name ) && protype( method.name, STRING ) ){
-		return true;
-	}
-
-	if( falzy( name ) && truly( name = stringe( method ).match( FUNCTION_NAME_PATTERN )[ 1 ] ) ){
+	if( falzy( name ) && truly( fname( method ) ) ){
 		return true;
 	}
 
@@ -91,23 +85,7 @@ const fnamed = function fnamed( method, name ){
 		return false;
 	}
 
-	if( falzy( method.name ) || !protype( method.name, STRING ) ){
-		return false;
-	}
-
-	if( method.name == name ){
-		return true;
-	}
-
-	if( method.name != name ){
-		return false;
-	}
-
-	if( stringe( method ).match( FUNCTION_NAME_PATTERN )[ 1 ] == name ){
-		return true;
-	}
-
-	return false;
+	return ( fname( method ) == name );
 };
 
 module.exports = fnamed;
