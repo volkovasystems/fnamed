@@ -67,13 +67,16 @@ var fnamed = function fnamed(method, name) {
 	/*;
                                             	@meta-configuration:
                                             		{
-                                            			"method:required": "function",
+                                            			"method:required": [
+                                            				"function",
+                                            				"string"
+                                            			],
                                             			"name": "string"
                                             		}
                                             	@end-meta-configuration
                                             */
 
-	if (falzy(method) || !protype(method, FUNCTION)) {
+	if (falzy(method) || !protype(method, FUNCTION + STRING)) {
 		return false;
 	}
 
