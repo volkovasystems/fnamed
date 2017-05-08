@@ -34,6 +34,9 @@
 			"file": "fnamed.js",
 			"module": "fnamed",
 			"author": "Richeve S. Bebedor",
+			"contributors": [
+				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
+			],
 			"eMail": "richeve.bebedor@gmail.com",
 			"repository": "https://github.com/volkovasystems/fnamed.git",
 			"test": "fnamed-test.js",
