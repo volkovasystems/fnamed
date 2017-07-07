@@ -1,8 +1,36 @@
+<!DOCTYPE html>
 <html>
 	<head>
-		<script
-			type="application/javascript"
-			src="./fnamed.deploy.js">
-		</script>
+		<title>fnamed unit test</title>
+
+		<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.3.2.css">
+
+		<script type="application/javascript" src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
+
+		<script type="application/javascript" src="./fnamed.deploy.js"></script>
 	</head>
+
+	<body>
+		<div id="qunit"></div>
+
+		<div id="qunit-fixture"></div>
+
+		<script type="application/javascript">
+			QUnit.test( "fnamed unit test", function( assert ) {
+
+				assert.equal( fnamed( function test( ){ } ), true, "should be true" );
+
+				assert.equal( fnamed( Error ), true, "should be true" );
+
+				assert.equal( fnamed( function( ){ } ), false, "should be false" );
+
+				assert.equal( fnamed( ( ) => { } ), false, "should be false" );
+
+				assert.equal( fnamed( ( entity ) => ( typeof entity == "string" ) ), false, "should be false" );
+
+				assert.equal( fnamed( "function hello( ){ }" ), false, "should be false" );
+				
+			} );
+		</script>
+	</body>
 </html>
