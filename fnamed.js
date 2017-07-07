@@ -34,10 +34,11 @@
 			"file": "fnamed.js",
 			"module": "fnamed",
 			"author": "Richeve S. Bebedor",
-			"contributors": [
-				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
-			],
 			"eMail": "richeve.bebedor@gmail.com",
+			"contributors": [
+				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>",
+				"Vinse Vinalon <vinsevinalon@gmail.com>"
+			],
 			"repository": "https://github.com/volkovasystems/fnamed.git",
 			"test": "fnamed-test.js",
 			"global": true
@@ -87,7 +88,7 @@ const fnamed = function fnamed( method, name ){
 		return true;
 	}
 
-	if( falzy( name ) || !protype( name, STRING ) ){
+	if( falzy( name ) || typeof name != STRING ){
 		return false;
 	}
 
