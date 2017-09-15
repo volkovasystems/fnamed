@@ -1,36 +1,26 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>fnamed unit test</title>
+		<meta charset="utf-8">
 
-		<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.3.2.css">
+		<title>test:fnamed</title>
 
-		<script type="application/javascript" src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
-
-		<script type="application/javascript" src="./fnamed.deploy.js"></script>
+		<link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css"/>
 	</head>
 
 	<body>
-		<div id="qunit"></div>
+		<div id="mocha"></div>
 
-		<div id="qunit-fixture"></div>
+		<script type="application/javascript" src="https://unpkg.com/mocha/mocha.js"></script>
 
 		<script type="application/javascript">
-			QUnit.test( "fnamed unit test", function( assert ) {
+			mocha.setup( "bdd" );
+		</script>
 
-				assert.equal( fnamed( function test( ){ } ), true, "should return true" );
+		<script type="application/javascript" src="./test.deploy.js"></script>
 
-				assert.equal( fnamed( Error ), true, "should return true" );
-
-				assert.equal( fnamed( function( ){ } ), false, "should return false" );
-
-				assert.equal( fnamed( ( ) => { } ), false, "should return false" );
-
-				assert.equal( fnamed( ( entity ) => ( typeof entity == "string" ) ), false, "should return false" );
-
-				assert.equal( fnamed( "function hello( ){ }" ), false, "should return false" );
-
-			} );
+		<script type="application/javascript">
+			mocha.run( );
 		</script>
 	</body>
 </html>
