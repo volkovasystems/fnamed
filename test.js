@@ -45,14 +45,13 @@
 
 	@include:
 		{
-			"assert": "should",
+			"assert": "should/as-function",
 			"fnamed": "fnamed"
 		}
 	@end-include
 */
 
-const assert = require( "should" );
-
+const assert = require( "should/as-function" );
 //: @server:
 const fnamed = require( "./fnamed.js" );
 //: @end-server
@@ -63,11 +62,45 @@ const fnamed = require( "./fnamed.js" );
 
 
 //: @server:
-
 describe( "fnamed", ( ) => {
 
-} );
+	describe( "`fnamed( function test( ){ } )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+			assert.equal( fnamed( function test( ){ } ), true );
+		} );
+	} );
 
+	describe( "`fnamed( Error )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+			assert.equal( fnamed( Error ), true );
+		} );
+	} );
+
+	describe( "`fnamed( function( ){ } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			assert.equal( fnamed( function( ){ } ), false );
+		} );
+	} );
+
+	describe( "`fnamed( ( ) => { } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			assert.equal( fnamed( ( ) => { } ), false );
+		} );
+	} );
+
+	describe( "`fnamed( ( entity ) => ( typeof entity == 'string' ) )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			assert.equal( fnamed( ( entity ) => ( typeof entity == "string" ) ), false );
+		} );
+	} );
+
+	describe( "`fnamed( 'function hello( ){ }' )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			assert.equal( fnamed( "function hello( ){ }" ), false );
+		} );
+	} );
+
+} );
 //: @end-server
 
 

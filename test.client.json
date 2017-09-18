@@ -1,0 +1,244 @@
+{
+	"state": {
+		"passed": 6,
+		"failed": 0,
+		"skipped": 0
+	},
+	"start": "2017-09-18T03:08:12.147Z",
+	"end": "2017-09-18T03:09:34.648Z",
+	"capabilities": {
+		"browserName": "chrome",
+		"chromeOptions": {
+			"args": [
+				"disable-gpu",
+				"headless"
+			]
+		},
+		"proxy": null
+	},
+	"host": "127.0.0.1",
+	"port": 4444,
+	"baseUrl": "http://localhost",
+	"framework": "mocha",
+	"mochaOpts": {
+		"timeout": 10000,
+		"ui": "bdd"
+	},
+	"suites": [
+		{
+			"name": "fnamed",
+			"duration": 0,
+			"start": "2017-09-18T03:09:34.139Z",
+			"tests": [],
+			"hooks": []
+		},
+		{
+			"name": "fnamed",
+			"duration": 329,
+			"start": "2017-09-18T03:09:34.140Z",
+			"end": "2017-09-18T03:09:34.469Z",
+			"tests": [],
+			"hooks": [
+				{
+					"start": "2017-09-18T03:09:34.141Z",
+					"end": "2017-09-18T03:09:34.142Z",
+					"duration": 1,
+					"title": "\"before each\" hook",
+					"associatedSuite": "fnamed",
+					"associatedTest": "should be equal to true"
+				},
+				{
+					"start": "2017-09-18T03:09:34.239Z",
+					"end": "2017-09-18T03:09:34.240Z",
+					"duration": 1,
+					"title": "\"after each\" hook",
+					"associatedSuite": "fnamed",
+					"associatedTest": "should be equal to true"
+				},
+				{
+					"start": "2017-09-18T03:09:34.241Z",
+					"end": "2017-09-18T03:09:34.241Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "fnamed",
+					"associatedTest": "should be equal to true"
+				},
+				{
+					"start": "2017-09-18T03:09:34.285Z",
+					"end": "2017-09-18T03:09:34.285Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "fnamed",
+					"associatedTest": "should be equal to true"
+				},
+				{
+					"start": "2017-09-18T03:09:34.285Z",
+					"end": "2017-09-18T03:09:34.285Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "fnamed",
+					"associatedTest": "should be equal to false"
+				},
+				{
+					"start": "2017-09-18T03:09:34.330Z",
+					"end": "2017-09-18T03:09:34.331Z",
+					"duration": 1,
+					"title": "\"after each\" hook",
+					"associatedSuite": "fnamed",
+					"associatedTest": "should be equal to false"
+				},
+				{
+					"start": "2017-09-18T03:09:34.331Z",
+					"end": "2017-09-18T03:09:34.333Z",
+					"duration": 2,
+					"title": "\"before each\" hook",
+					"associatedSuite": "fnamed",
+					"associatedTest": "should be equal to false"
+				},
+				{
+					"start": "2017-09-18T03:09:34.380Z",
+					"end": "2017-09-18T03:09:34.380Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "fnamed",
+					"associatedTest": "should be equal to false"
+				},
+				{
+					"start": "2017-09-18T03:09:34.380Z",
+					"end": "2017-09-18T03:09:34.382Z",
+					"duration": 2,
+					"title": "\"before each\" hook",
+					"associatedSuite": "fnamed",
+					"associatedTest": "should be equal to false"
+				},
+				{
+					"start": "2017-09-18T03:09:34.420Z",
+					"end": "2017-09-18T03:09:34.420Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "fnamed",
+					"associatedTest": "should be equal to false"
+				},
+				{
+					"start": "2017-09-18T03:09:34.421Z",
+					"end": "2017-09-18T03:09:34.421Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "fnamed",
+					"associatedTest": "should be equal to false"
+				},
+				{
+					"start": "2017-09-18T03:09:34.468Z",
+					"end": "2017-09-18T03:09:34.468Z",
+					"duration": 0,
+					"title": "\"after each\" hook",
+					"associatedSuite": "fnamed",
+					"associatedTest": "should be equal to false"
+				},
+				{
+					"start": "2017-09-18T03:09:34.469Z",
+					"end": "2017-09-18T03:09:34.470Z",
+					"duration": 1,
+					"title": "\"after all\" hook",
+					"associatedSuite": "fnamed"
+				}
+			]
+		},
+		{
+			"name": "`fnamed( function test( ){ } )`",
+			"duration": 100,
+			"start": "2017-09-18T03:09:34.140Z",
+			"end": "2017-09-18T03:09:34.240Z",
+			"tests": [
+				{
+					"name": "should be equal to true",
+					"start": "2017-09-18T03:09:34.141Z",
+					"end": "2017-09-18T03:09:34.239Z",
+					"duration": 98,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`fnamed( Error )`",
+			"duration": 45,
+			"start": "2017-09-18T03:09:34.240Z",
+			"end": "2017-09-18T03:09:34.285Z",
+			"tests": [
+				{
+					"name": "should be equal to true",
+					"start": "2017-09-18T03:09:34.240Z",
+					"end": "2017-09-18T03:09:34.285Z",
+					"duration": 45,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`fnamed( function( ){ } )`",
+			"duration": 46,
+			"start": "2017-09-18T03:09:34.285Z",
+			"end": "2017-09-18T03:09:34.331Z",
+			"tests": [
+				{
+					"name": "should be equal to false",
+					"start": "2017-09-18T03:09:34.285Z",
+					"end": "2017-09-18T03:09:34.330Z",
+					"duration": 45,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`fnamed( ( ) => { } )`",
+			"duration": 49,
+			"start": "2017-09-18T03:09:34.331Z",
+			"end": "2017-09-18T03:09:34.380Z",
+			"tests": [
+				{
+					"name": "should be equal to false",
+					"start": "2017-09-18T03:09:34.331Z",
+					"end": "2017-09-18T03:09:34.379Z",
+					"duration": 48,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`fnamed( ( entity ) => ( typeof entity == 'string' ) )`",
+			"duration": 40,
+			"start": "2017-09-18T03:09:34.380Z",
+			"end": "2017-09-18T03:09:34.420Z",
+			"tests": [
+				{
+					"name": "should be equal to false",
+					"start": "2017-09-18T03:09:34.380Z",
+					"end": "2017-09-18T03:09:34.420Z",
+					"duration": 40,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`fnamed( 'function hello( ){ }' )`",
+			"duration": 48,
+			"start": "2017-09-18T03:09:34.420Z",
+			"end": "2017-09-18T03:09:34.468Z",
+			"tests": [
+				{
+					"name": "should be equal to false",
+					"start": "2017-09-18T03:09:34.421Z",
+					"end": "2017-09-18T03:09:34.468Z",
+					"duration": 47,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		}
+	]
+}
