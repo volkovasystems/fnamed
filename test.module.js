@@ -45,14 +45,13 @@
 
 	@include:
 		{
-			"assert": "should",
+			"assert": "should/as-function",
 			"fnamed": "fnamed"
 		}
 	@end-include
 */
 
-const assert = require( "should" );
-
+const assert = require( "should/as-function" );
 //: @server:
 const fnamed = require( "./fnamed.js" );
 //: @end-server
@@ -67,27 +66,189 @@ const path = require( "path" );
 
 
 //: @server:
-
 describe( "fnamed", ( ) => {
 
-} );
+	describe( "`fnamed( function test( ){ } )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+			assert.equal( fnamed( function test( ){ } ), true );
+		} );
+	} );
 
+	describe( "`fnamed( Error )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+			assert.equal( fnamed( Error ), true );
+		} );
+	} );
+
+	describe( "`fnamed( function( ){ } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			assert.equal( fnamed( function( ){ } ), false );
+		} );
+	} );
+
+	describe( "`fnamed( ( ) => { } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			assert.equal( fnamed( ( ) => { } ), false );
+		} );
+	} );
+
+	describe( "`fnamed( ( entity ) => ( typeof entity == 'string' ) )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			assert.equal( fnamed( ( entity ) => ( typeof entity == "string" ) ), false );
+		} );
+	} );
+
+	describe( "`fnamed( 'function hello( ){ }' )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			assert.equal( fnamed( "function hello( ){ }" ), false );
+		} );
+	} );
+
+} );
 //: @end-server
 
 
 //: @client:
-
 describe( "fnamed", ( ) => {
 
-} );
+	describe( "`fnamed( function test( ){ } )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+			assert.equal( fnamed( function test( ){ } ), true );
+		} );
+	} );
 
+	describe( "`fnamed( Error )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+			assert.equal( fnamed( Error ), true );
+		} );
+	} );
+
+	describe( "`fnamed( function( ){ } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			assert.equal( fnamed( function( ){ } ), false );
+		} );
+	} );
+
+	describe( "`fnamed( ( ) => { } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			assert.equal( fnamed( ( ) => { } ), false );
+		} );
+	} );
+
+	describe( "`fnamed( ( entity ) => ( typeof entity == 'string' ) )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			assert.equal( fnamed( ( entity ) => ( typeof entity == "string" ) ), false );
+		} );
+	} );
+
+	describe( "`fnamed( 'function hello( ){ }' )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			assert.equal( fnamed( "function hello( ){ }" ), false );
+		} );
+	} );
+
+} );
 //: @end-client
 
 
 //: @bridge:
-
 describe( "fnamed", ( ) => {
 
-} );
+	let bridgeURL = `file://${ path.resolve( __dirname, "bridge.html" ) }`;
 
+	describe( "`fnamed( function test( ){ } )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return fnamed( function test( ){ } );
+				}
+
+			).value;
+
+			assert.equal( result, true );
+
+		} );
+	} );
+
+	describe( "`fnamed( Error )`", ( ) => {
+		it( "should be equal to true", ( ) => {
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return fnamed( Error );
+				}
+
+			).value;
+
+			assert.equal( result, true );
+
+		} );
+	} );
+
+	describe( "`fnamed( function( ){ } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return fnamed( function( ){ } );
+				}
+
+			).value;
+
+			assert.equal( result, false );
+
+		} );
+	} );
+
+	describe( "`fnamed( ( ) => { } )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return fnamed( ( ) => { } );
+				}
+
+			).value;
+			//: @end-ignore
+
+			assert.equal( result, false );
+
+		} );
+	} );
+
+	describe( "`fnamed( ( entity ) => ( typeof entity == 'string' ) )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return fnamed( ( entity ) => ( typeof entity == "string" ) );
+				}
+
+			).value;
+			//: @end-ignore
+
+			assert.equal( result, false );
+
+		} );
+	} );
+
+	describe( "`fnamed( 'function hello( ){ }' )`", ( ) => {
+		it( "should be equal to false", ( ) => {
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return fnamed( "function hello( ){ }" );
+				}
+
+			).value;
+
+			assert.equal( result, false );
+			
+		} );
+	} );
+
+} );
 //: @end-bridge
